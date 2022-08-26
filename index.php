@@ -1,5 +1,6 @@
 <?php 
 include 'koneksi.php';
+session_start();  
 ?>
 
 <!doctype html>
@@ -66,7 +67,7 @@ include 'koneksi.php';
 
           // Pengecekan Kondisi Login Berhasil/Tidak
             if ($row > 0) {
-                session_start();   
+                 
                 $_SESSION['login_user'] = $login_user;
 
                 if ($status == 'admin') {

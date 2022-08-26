@@ -11,8 +11,11 @@ if(empty($_SESSION["pesanan"]) OR !isset($_SESSION["pesanan"]))
   echo "<script>alert('Pesanan kosong, Silahkan Pesan dahulu');</script>";
   echo "<script>location= 'menu_pembeli.php'</script>";
 }
-?>
 
+echo "<pre>";
+print_r($_SESSION);
+echo "</pre>";
+?>
 
 
   <!-- Menu -->
@@ -89,15 +92,15 @@ if(empty($_SESSION["pesanan"]) OR !isset($_SESSION["pesanan"]))
           foreach ($_SESSION["pesanan"] as $id_menu => $jumlah)
           {
             $insert = mysqli_query($koneksi, "INSERT INTO pemesanan_produk (tanggal_acara, id_pemesanan, id_menu, jumlah) 
-              VALUES ('$tanggal_acara', $id_terbaru', '$id_menu', '$jumlah') ");
+              VALUES ('$tanggal_acara', '$id_terbaru', '$id_menu', '$jumlah') ");
           }          
 
           // Mengosongkan pesanan
-          unset($_SESSION["pesanan"]);
+          // unset($_SESSION["pesanan"]);
 
           // Dialihkan ke halaman nota
-          echo "<script>alert('Pemesanan Sukses!');</script>";
-          echo "<script>location= 'menu_pembeli.php'</script>";
+          // echo "<script>alert('Pemesanan Sukses!');</script>";
+          echo "<script>location= 'pembayaran.php'</script>";
       }
       ?>
     </div>
